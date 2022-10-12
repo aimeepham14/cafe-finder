@@ -14,9 +14,19 @@ export default function Profile({ currentUser, handleLogout }) {
 	console.log('server url', process.env.REACT_APP_SERVER_URL)
 
 	useEffect(() => {
-		const getSaves = async () => {
+
+		const token = localStorage.getItem("jwt")
+        // set request headers
+        const options = {
+            headers: {
+                'Authorization': token
+            }
+        }
+
+		const getSave = async () => {
 			try {
-				const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/api-v1/cafes/${yelpId}`)
+				const response = await axios.get(`${process.env.REACT_APP_SERVER_URL}/cafes`, options)
+				// console.log(response.data)
 				setSave(response.data)
 			} catch(err) {
 				console.warn(err)
@@ -25,14 +35,14 @@ export default function Profile({ currentUser, handleLogout }) {
 				}
 			}
 		}
-		getSaves()
+		getSave()
 	}, [])
 
-	// const cafeLinks = caves.map(cafe => {
-	// 	<div key={cafe._id}>
-	// 		<Link to={`/cafes/${result.id}`}>{cafe.name}</Link>
-	// 	</div>
-	// })
+	const cafeLinks = save.map(cafe => {
+		<div key={cafe._id}>
+			<Link to={`/cafes`}>{cafe.name}</Link>
+		</div>
+	})
 
 	// useEffect for getting the user data and checking auth
 	useEffect(() => {
