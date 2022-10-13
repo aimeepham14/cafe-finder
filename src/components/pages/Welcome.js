@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import axios from 'axios'
 import Results from '../routes/Results'
 import Result from '../routes/Result'
-import Search from '../routes/Search'
+import Search from '../routes/Search' 
 // import { Link } from 'react-router-dom'
 
 export default function Welcome(props) {
@@ -49,13 +49,14 @@ export default function Welcome(props) {
 
     return (
         <div>
-            <h1>Welcome start searching for a cafe:</h1>
+            <h1>The Perfect Blend</h1>
+            <h3>Start searching for a cafe near you:</h3>
             <form onSubmit={handleSubmit}>
                 <div>
                     <p>
                         <input
                             type ='text'
-                            placeholder='enter a location'
+                            placeholder='Enter a location or zipcode...'
                             value={props.search.location}
                             onChange={(e) => props.setSearch(e.target.value)}
                         />
