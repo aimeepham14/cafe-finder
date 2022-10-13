@@ -11,9 +11,11 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: var(--element-spacing);
   margin: 1.5 rem;
-  background-image: url("https://i.imgur.com/Cl7Ps3g.jpg")
+  background-image: url("https://i.imgur.com/Cl7Ps3g.jpg");
+  background-position: no-repeat;
+  background-size: cover;
+  background-position: center
 }
 
 .right {
@@ -22,6 +24,10 @@ body {
   align-items: center;
   margin-left: 15px;
 
+}
+
+.links {
+  color: white;
 }
 
 /* .nav-bar {
